@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#使用初始设置，WMT17 sentence-level QE
+
+ref_file=dev.pe.trans
+mt_file=dev.mt.trans
+hter_file=dev.pred.hter
+
+
+java -jar ../tercom.7.25.jar -r $ref_file -h $mt_file -o ter -n hter.output
+
+python extract_hter.py hter.output.ter $hter_file
+
+
+
+
+
+
